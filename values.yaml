@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: nginx  # Пока используем стандартный nginx для теста
   pullPolicy: IfNotPresent
-  tag: "latest"      # В будущем здесь будет меняться версия через GitHub Actions
+  tag: "1.2.3"      # В будущем здесь будет меняться версия через GitHub Actions
 service:
   type: ClusterIP
   port: 80
