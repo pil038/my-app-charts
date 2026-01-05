@@ -1,0 +1,19 @@
+name: Update Helm Chart Version
+on:
+  workflow_dispatch: # Позволяет запускать вручную для теста
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Change version tag
+        run: |
+          sed -i 's/tag: "latest"/tag: "1.2.3"/g' values.yaml
+      - name: Commit and push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add values.yaml
+          git commit -m "Update image tag to 1.2.3"
+          git push
